@@ -43,5 +43,34 @@ int main(void)
     printf("b 大於 100\n");
   }
 
+  // 練習
+
+  char temp = 0;
+
+  // 比較的是 ASCII 碼
+  // ex: int 48 在 char 類型是比對 ASCII 代表 '0'
+  printf("ASCII 48 代表 %c\n", 48);
+  // ex: int 97 在 char 類型是比對 ASCII 代表 'a'
+  printf("ASCII 97 代表 %c\n", 97);
+  // 參考: https://shihyu.github.io/books/apas01.html
+
+  printf("請輸入一個字\n");
+
+  // 就算輸入多個字最後也只會抓第一個字，因為是宣告成 char 類型
+  // 多的資料不會被存進變數
+  scanf("%c", &temp);
+
+  if(temp >= '0' && temp <= '9') {
+    printf("這是一個數字\n");
+  }
+
+  if(temp >= 'A' && temp <= 'Z') {
+    printf("是一個大寫字母\n");
+  }
+
+  if(temp >= 'a' && temp <= 'z') {
+    printf("是一個小寫字母\n");
+  }
+
   return 0;
 }
