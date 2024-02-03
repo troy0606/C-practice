@@ -39,17 +39,17 @@ int main(void)
   switch (calcOpt)
   {
   case '+':
-  {
+  ;
     int result = aInt + bInt;
     printf("aInt: %d + bInt: %d = %d\n", aInt, bInt, result);
-  };
+  
   break;
   case '-':
   {
     int result = aInt - bInt;
     printf("aInt: %d - bInt: %d = %d\n", aInt, bInt, result);
+    break;
   };
-  break;
   case '*':
   {
     int result = aInt * bInt;
@@ -66,6 +66,18 @@ int main(void)
     printf("輸入錯誤\n");
     break;
   }
+
+  /** ps: 
+   * 上面的 case 裡面的程式，如果沒有用 {} 包起來
+   * 編譯時會報錯 Label can only be used as part of a statement Error
+   * 原因是因為 case : 只能在語句前
+   * 而 case : 後第一行 是宣告 result 
+   * 宣告不算語句，所以會報錯
+   * 
+   * 可以像上面程式 + 的 case 這樣寫，但不推薦
+   * 
+   * 參考: https://stackoverflow.com/questions/46341364/label-can-only-be-used-as-part-of-a-statement-error#46341408
+  */
 
   return 0;
 }
