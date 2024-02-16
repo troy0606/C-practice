@@ -55,7 +55,23 @@ int main(void)
   scanf("%f", &bFloat);
 
   float cFloat = aInt + bFloat;
-  printf("%f", cFloat);
+  printf("%f\n", cFloat);
+
+
+  double aDouble = 1.6;
+  double bDouble = 1.7;
+
+  printf("變數 aDouble = %lf, bDouble = %lf \n", aDouble, bDouble);
+  printf("賦值類型轉換\n");
+  int bInt = aDouble + bDouble;
+  printf("賦值類型轉換 aDouble + bDouble = bInt(%d)\n", bInt);
+
+  printf("臨時類型轉換\n");
+  int cInt = (int)aDouble + (int)bDouble;
+  printf("臨時類型轉換 (int)aDouble + (int)bDouble = cInt(%d)\n", cInt);
+
+  printf("變數 aDouble = %lf, bDouble = %lf 內存沒有變\n", aDouble, bDouble);
+
 
   return 0;
 }
