@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 /**
  * 測驗 
@@ -317,6 +318,250 @@ void question17()
  printf("第 17 題 !((x<y)&&!z||1) = %d\n", !((x<y)&&!z||1));
 }
 
+/**
+ * 18. 判斷 char 型變量 c1 是否微小寫字母的正確表達式為 (D)
+ * 
+ * A: 'a' <= c1 <= f'z' B: (c1 >= a) && (c1 <= z)
+ * C: ('a' >= c1)('z' <= c1)  D: (c1 >= 'a') && (c1 <= 'z')
+ *
+ * ps: 
+ * A : 沒有這樣寫法 f'z'
+ * B : a 如果不是變數要用 'a' 當字符
+ * C : 兩個括號放在一起，沒有這種寫法
+ * D : 正解，字元比大小會用 ASCII 碼來做比較
+ * 
+ */
+void question18()
+{
+  char c1;
+  // 識別項 "f" 未定義
+  // bool isLowerCase = 'a' <= c1 <= f'z';
+
+  // 識別項 "a" 未定義
+  // 識別項 "z" 未定義
+  // bool isLowerCase = (c1 >= a) && (c1 <= z);
+
+  // 程式呼叫的運算式前括號必須有函式 (指標) 類型
+  // bool isLowerCase = ('a' >= c1)('z' <= c1);
+
+  // 字元比大小會用 ASCII 碼來做比較;
+  bool isLowerCase = (c1 >= 'a') && (c1 <= 'z');
+}
+
+/**
+ * 19. 字符 'a' 在記憶體中佔據的位元組個數為 (B)
+ * 
+ * A: 0 B: 1
+ * C: 2 D: 3
+ *
+ * 
+ * ps: 可參考 Class0-data-type
+ */
+void question19()
+{
+  printf("型態\t\t大小（bytes）\n");
+  printf("note: 1 bytes = 8 bit\n");
+
+  printf("字元--------\n");
+  printf("char\t\t%lu\n", sizeof(char));
+}
+
+/**
+ * 20. 下面關於 for 循環的正確描述是 (D)
+ * 
+ * A: for 循環只能用於循環次數已經確定的情況 
+ * B: for 訓還事先執行循環體語句，後判斷表達式
+ * C: 在 for 循環體中，不能用 break 語句跳出循環體 
+ * D: for 循環體語句中，可以包含多條語句，但藥用花括號括起來
+ * 
+ * A: 可以用在循環次數不定的
+ * B: 只有 do while 是這樣
+ * C: break 跳出可以用在各種循環語句
+ * D: 正解
+ *
+ * ps: 可參考 Class24-for-loop
+ */
+void question20()
+{
+}
+
+/**
+ * 21. 下面關於 for 循環的正確描述是 (C)
+ * 
+ * A: 1  B: 1 2
+ * C: 1 2 3 D: 1 2 3 4 
+ *
+ * ps: 可參考 Class23-while-loop
+ */
+void question21()
+{
+  int num = 0;
+  while(num <= 2) {
+    num ++;
+    printf("第 21 提循環 num = %d", num);
+  }
+}
+
+/**
+ * 22. 以下描述正確的是 (C)
+ * 
+ * A: 由於 do-while 循環中循環體語句只能是一條可執行語句，
+ * 所以循環體內不能使用複合語句  
+ * B: do-while 循環由 do 開始，用 while 結束，
+ * 在 while (表達式)後面不能寫分號
+ * C: 在 do-while 循環體中，一定要有能使 while 後面表達式的值變成零("假")的操作，
+ * 否則會造成死循環 
+ * D: 在 do-while 循環中，根據情況可以省略 while
+ *
+ * A: 可以使用複合語句
+ * B: 在 while (表達式)後面一定要寫分號
+ * C: 正解
+ * D: 沒有
+ * ps: 可參考 Class25-do-while-loop
+ */
+void question22()
+{
+}
+
+/**
+ * 23. 以下對一維整形陣列 a 的正確說明是 (D)
+ * 
+ * A: int a(10)
+ * B: int n = 10,a[n];
+ * C: int n; scanf("%d", &n);int a[n];
+ * D: int a[10]
+ *
+ * A: 不能用小括號
+ * B: 不能用變數初始化陣列，可以用常量
+ * C: 同B
+ * D: 正解
+ * ps: 可參考 Class29-array
+ */
+void question23()
+{
+  // 必須是類型規範
+  // int a(10);
+
+  // 陣列的長度要在編譯期就決定好。如果想要在執行期動態生成陣列，要用動態配置記憶體的方式
+  // int n = 10,a[n];
+
+  // 同上
+  // int n; scanf("%d", &n);int a[n];
+
+  // 正解
+  int a[10];
+}
+
+/**
+ * 24. 以下對二維陣列 a 正確的說明是 (C)
+ * 
+ * A: int a[3][];
+ * B: float a(3,4);
+ * C: double a[1][4];
+ * D: float a(3)(4);
+ *
+ * A: 後面個數不能省略
+ * B: 沒有這樣的寫法
+ * C: 正解
+ * D: 沒有這樣的寫法
+ * ps: 可參考 Class31-two-dimension-array
+ */
+void question24()
+{
+  // 不允許不完整的類型
+  // int a[3][];
+
+  // 沒有這樣的寫法
+  // float a(3,4);
+
+  // 正解
+  double a[1][4];
+
+  // 沒有這樣的寫法
+  // float a(3)(4);
+}
+
+/**
+ * 25. 若二維陣列 a 有 m 列，則在 a[i][j] 前面的個數為 (B)
+ * 
+ * A: j*m+i
+ * B: i*m+j
+ * C: i*m+j-1
+ * D: i*m+j+1
+ *
+ * ps: 可參考 Class31-two-dimension-array
+ */
+void question25()
+{
+  int a[2][3] = {1,2,3,4,5,6};
+  int answer = a[1][2];
+  // answer = 6;
+  // m 列 = 3 列，a[1][2] = 3+3 = 6 前面的個數是 5
+  /**
+   * [
+   *  [1,2,3],
+   *  [4,5,6],
+   * ]
+   */
+}
+
+/**
+ * 26. 已知有整數型陣列 int arr_nNum[10] 和 
+ * 字符陣列 char szName[10]，訪問陣列的正確方式的是(C)
+ * 
+ * A: arr_nNum[10] = 10;
+ * B: arr_nNum = {1,2,3,4};
+ * C: szName[1] = 5;
+ * D: szName = 5;
+ *
+ * ps: 可參考 Class29-array
+ */
+void question26()
+{
+  int arr_nNum[10];
+  char szName[10];
+  
+  // 越界訪問，只能初始化 10 個空間，訪問到第 11 個(index 10)
+  // arr_nNum[10] = 10;
+  
+  // 花括號只有初始化可以使用
+  // arr_nNum = {1,2,3,4};
+
+  // 雖然宣告是 char，但還是可以塞整數
+  // szName[1] = 5;
+
+  // szName 是地址，地址無法存放數據
+  // 運算式必須是可修改的左值
+  // szName = 5;
+}
+
+/**
+ * 27. 下面說法錯誤的是(D)
+ * 
+ * A: int 和 int 相加，得到的結果仍然是 int
+ * B: char 和 int 相加，得到的結果是 int
+ * C: double 和 float 相加，得到的結果是 double
+ * D: int 被強轉成 char 後，將變成 char
+ *
+ * ps: 隱式轉換，精度不同數據類型運算時，低精度會轉成高精度
+ * ps: 強轉並不會影響原本變數的數據類型，只是暫時先改用其他數據類型
+ * ps: 可參考 Class15-type-change
+ */
+void question27()
+{
+  int a,b = 1;
+  printf("27題 int 和 int 相加 = %d\n", a + b);
+
+  char d = 'a';
+  printf("27題 char 和 int 相加 = %d\n", a + d);
+
+  // 雙精度浮點數
+  double c1 = 0.5;
+  // 單精度浮點數
+  float c2 = 0.6;
+  printf("27題 double 和 float 相加 = %lf\n", c1 + c2);
+}
+
 // 主函數，入口函數
 int main(void)
 {
@@ -336,5 +581,15 @@ int main(void)
   question15();
   question16();
   question17();
+  question18();
+  question19();
+  question20();
+  question21();
+  question22();
+  question23();
+  question24();
+  question25();
+  question26();
+  question27();
   return 0;
 }
