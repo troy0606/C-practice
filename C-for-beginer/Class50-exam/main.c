@@ -562,6 +562,79 @@ void question27()
   printf("27題 double 和 float 相加 = %lf\n", c1 + c2);
 }
 
+/**
+ * 28. 已知 const int a = 9，則下面語句正確的是 (D)
+ * 
+ * A: a = 10;
+ * B: a ++;
+ * C: -- a;
+ * D: int b = a + 1;
+ *
+ * ps: 常量不可重新賦值(只讀)
+ * ps: 可參考 Class48-const
+ * ps: 遞增、遞減運算子會重新賦值
+ * ps: 可參考 Class9-increment-operators
+ */
+void question28()
+{
+  const int a = 9;
+  // 運算式必須是可修改的左值
+  a = 10;
+  // 運算式必須是可修改的左值
+  // ps: a++ => a = a + 1;
+  a ++;
+  // 運算式必須是可修改的左值
+  // ps: --a => a = a - 1;
+  -- a;
+  int b = a + 1;
+}
+
+/**
+ * 29. 已知 int a = 9 + '1'，則下面說法錯誤的是 (B、D)
+ * 
+ * A: %d 打印 a 的值是 58;
+ * B: %c 打印 a 的值是 '10';
+ * C: sizeof(a) 等於 4;
+ * D: 不能用 %c 打印 a;
+ *
+ */
+void question29()
+{
+  int a = 9 + '1';
+  // ps: 選項 A 正確，因為 運算時 '1' 會被當作 int，對應 ASCII 是 49，9 + 49 = 58
+  printf("第 29 題選項 A 打印 a 的值是 58，實際 %d\n", a);
+  // ps: 選項 B 不正確，因為同 上面描述
+  printf("第 29 題選項 B 打印 a 的值是 '10'，實際 %c\n", a);
+  // ps: 選項 C 正確，因為 int 占的空間是 4 bytes
+  printf("第 29 題選項 C sizeof(a) 等於 4，實際 %d\n", sizeof(a));
+  // ps: 選項 D 不正確，還是可以用 %c 打印
+  printf("第 29 題選項 D 不能用 打印 a，實際 %c\n", a);
+}
+
+/**
+ * 30. 下列運算符中優先級最高的是 (C)
+ * 
+ * A: <  B: +
+ * C: %  D: !=
+ *
+ * ps: 可參考 Class14-operators-priority
+ */
+void question30()
+{
+  /**
+   * 運算子優先順序(由高到低)
+   * 
+   * 特殊運算子 () !  
+   * 算術運算子 *、/、% 
+   * 關係運算子 >=<
+   * 位元運算子 
+   * 邏輯運算子 && ||  
+   * 條件運算子 ?:
+   * 賦值運算子 =
+   * 逗號運算子 ,
+  */
+}
+
 // 主函數，入口函數
 int main(void)
 {
@@ -591,5 +664,8 @@ int main(void)
   question25();
   question26();
   question27();
+  question28();
+  question29();
+  question30();
   return 0;
 }
